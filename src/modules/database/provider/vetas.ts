@@ -1,7 +1,8 @@
 import { Config } from 'src/configs/configuracion';
 import { Sequelize } from 'sequelize-typescript';
+import { VentaModel } from 'src/modules/ventas/model/ventas';
 
-export const models = [];
+export const models = [VentaModel];
 
 export const VENTAS = {
   provide: 'SEQUELIZE_CITAS',
@@ -12,16 +13,16 @@ export const VENTAS = {
         multipleStatements: true,
         useUTC: false,
         dateStrings: true,
-        typeCast: true,
+        typeCast: true
       },
       timezone: 'America/Bogota',
       host: Config.dbHost,
       port: Config.dbPuerto,
       username: Config.dbUsuario,
       password: Config.dbContrasenna,
-      database: Config.dbBaseDatos,
+      database: Config.dbBaseDatos
     });
     sequelize.addModels(models);
     return sequelize;
-  },
+  }
 };
